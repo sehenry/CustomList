@@ -9,14 +9,33 @@ namespace CustomList
 {
     public class MyList <T>: IEnumerable <T>
     {
-        public int Count; 
-        public T Add(T value)
+        public T[] myArray = new T[10];        
+        public int Count = 0;
+       
+
+        public T this[T index]
         {
-            return value;
+            get
+            {
+                return index;
+            }
         }
-        public T Remove(T value)
+        public override string ToString()
         {
-            return value;
+            return this.ToString();
+        }
+
+        public void Add(T value)
+        {
+            myArray[Count] = value;
+            Count += 1;
+
+            //return this.value = value;
+            //myList.Add(value);
+        }
+        public bool Remove(T value)
+        {
+            return true;
         }
 
         //public IEnumerator<T> IterateList() can I not call the IEnumerator something else?

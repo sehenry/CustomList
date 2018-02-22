@@ -10,6 +10,8 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
+            MyList<string> goo = new MyList<string>();
+            goo.Add("hh");
         }
     }
 }

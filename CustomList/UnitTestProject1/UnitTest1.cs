@@ -5,8 +5,6 @@ using CustomList;
 namespace MyListTest
 {
     [TestClass]
-    public double[] numbersAdded = new double[6];
-
     public class MyListTesting
     {
         [TestMethod]
@@ -31,28 +29,44 @@ namespace MyListTest
 
             Assert.AreEqual(6, add.Count);
         }
+
         [TestMethod]
-        public void TestMethodAddDouble()
+        public void TestIndexOfAdded()
         {
             MyList<double> add = new MyList<double> { 23.1, 31.9, 1.77, 6.799, 10.09 };
 
             double addedToList = 1000.14;
-            double i = 0;
+           
+
             add.Add(addedToList);
 
-            Assert.AreEqual(add[5], addedToList); //check that addedToList is at index [5]
+            Assert.AreEqual(add[5], addedToList); 
         }
 
         [TestMethod]
         public void TestMethodRemove()
         {
-            MyList<int> subtract = new MyList<int>();
+            MyList<int> remove = new MyList<int> { 3, 7, 22, 34, 1 };
 
             int removeFromList = 3;
 
-            subtract.Remove(removeFromList);
+            remove.Remove(removeFromList);
 
-            Assert.AreEqual(-1, subtract.Count);
+            Assert.AreEqual(4, remove.Count);
+        }
+
+        [TestMethod]
+
+        public void TestIndexOfRemovedInt()
+        {
+            MyList<int> remove = new MyList<int> { 4, 23, 32, 47, 50 };
+
+            int removeFromList = 32;
+           
+
+            remove.Remove(removeFromList);
+
+            Assert.AreNotEqual(remove[2], removeFromList); 
         }
         [TestMethod]
         public void TestIterateList()

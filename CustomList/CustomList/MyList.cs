@@ -13,12 +13,13 @@ namespace CustomList
         public int Count = 0;
        
 
-        public T this[T index]
+        public T this[int index]
         {
             get
             {
-                return index;
+                return myArray[index];
             }
+
         }
         public override string ToString()
         {
@@ -35,6 +36,8 @@ namespace CustomList
         }
         public bool Remove(T value)
         {
+            //if (Count < 10000 & Count > 0) return true;
+            //else return false;
             return true;
         }
 

@@ -36,7 +36,6 @@ namespace MyListTest
             MyList<double> add = new MyList<double> { 23.1, 31.9, 1.77, 6.799, 10.09 };
 
             double addedToList = 1000.14;
-           
 
             add.Add(addedToList);
 

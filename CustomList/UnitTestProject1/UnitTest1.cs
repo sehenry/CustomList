@@ -10,10 +10,10 @@ namespace MyListTest
         [TestMethod]
         public void TestMethodAddInt()
         {
-            MyList<int> add = new MyList<int>() { 1, 2, 3, 4, 5};
-                     
-            int addedToList = 6;        
-                 
+            MyList<int> add = new MyList<int>() { 1, 2, 3, 4, 5 };
+
+            int addedToList = 6;
+
             add.Add(addedToList);
 
             Assert.AreEqual(6, add.count);
@@ -39,7 +39,7 @@ namespace MyListTest
 
             add.Add(addedToList);
 
-            Assert.AreEqual(add[5], addedToList); 
+            Assert.AreEqual(add[5], addedToList);
         }
 
         [TestMethod]
@@ -64,12 +64,23 @@ namespace MyListTest
 
             remove.FindIndex(removeFromList);
 
-            Assert.AreEqual(remove[2], removeFromList); 
+            Assert.AreEqual(remove[2], removeFromList);
         }
-        [TestMethod]
-        public void TestIterateList()
-        {
+        //[TestMethod]
+        //public void TestZipClasses()
+        //{
+        //    MyList < int > odd = new MyList<int> { 1, 3, 5};
+        //    MyList < int > even = new MyList<int> { 2, 4, 6,};
 
-        }
+        //    int zipResult;
+
+        //    zipResult = odd.ZipClassesTogether(even); //figure out how to test the IEnumerable
+
+        //    Assert.AreEqual(zipResult[1], 2);
+        //}
+
     }
 }
+       
+    
+

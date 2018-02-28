@@ -12,7 +12,6 @@ namespace CustomList
         public T[] myArray = new T[100];        
         public int count = 0;
         public int capacity = 100;
-        public int index;
         public int i = 0;
 
         public T this[int index]
@@ -63,14 +62,39 @@ namespace CustomList
             return i;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public void AddListsTogether()
         {
-            throw new NotImplementedException();
+
+        }
+
+        public void SubtractOneListFromAnother()
+        {
+
+        }
+
+        //public void ZipClassesTogether()
+        //{
+        //    //figure out how to have two instances of list or array as variables to then be used in the IEnumerable
+        //    IEnumerable<string> result = listOne.Zip(listTwo, (a, b) => a.ToString() + b);
+
+        //    foreach(string s in result)
+        //    {
+        //        return;
+        //    }
+        //}
+
+        public IEnumerator<T> GetEnumerator() 
+        {
+            for(int i = 0; i < myArray.Length; i++)
+            {
+                yield return myArray[i];
+            }
+
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }

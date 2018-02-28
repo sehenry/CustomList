@@ -9,9 +9,11 @@ namespace CustomList
 {
     public class MyList <T>: IEnumerable <T>
     {
-        public T[] myArray = new T[10];        
-        public int Count = 0;
-       
+        public T[] myArray = new T[100];        
+        public int count = 0;
+        public int capacity = 100;
+        public int index;
+        public int i = 0;
 
         public T this[int index]
         {
@@ -19,7 +21,9 @@ namespace CustomList
             {
                 return myArray[index];
             }
-
+            set
+            {             
+            }
         }
         public override string ToString()
         {
@@ -28,23 +32,36 @@ namespace CustomList
 
         public void Add(T value)
         {
-            myArray[Count] = value;
-            Count += 1;
+            myArray[count] = value;
+            count += 1;
 
-            //return this.value = value;
-            //myList.Add(value);
-        }
-        public bool Remove(T value)
+            if (count * 2 > capacity)
+            DoubleArraySize();
+        } 
+        public void DoubleArraySize()
         {
-            //if (Count < 10000 & Count > 0) return true;
-            //else return false;
-            return true;
+            myArray = new T[capacity * 2];
         }
 
-        //public IEnumerator<T> IterateList() can I not call the IEnumerator something else?
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public int FindIndex(T value)
+        {
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                if (myArray[i].Equals(value)== true) 
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public int RemoveObject(T value)
+        {
+            myArray[i] = value;
+
+            count--;
+            return i;
+        }
 
         public IEnumerator<T> GetEnumerator()
         {

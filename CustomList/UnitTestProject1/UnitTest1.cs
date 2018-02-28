@@ -16,7 +16,7 @@ namespace MyListTest
                  
             add.Add(addedToList);
 
-            Assert.AreEqual(6, add.Count);
+            Assert.AreEqual(6, add.count);
         }
         [TestMethod]
         public void TestMethodAddString()
@@ -27,7 +27,7 @@ namespace MyListTest
 
             add.Add(addedToList);
 
-            Assert.AreEqual(6, add.Count);
+            Assert.AreEqual(6, add.count);
         }
 
         [TestMethod]
@@ -49,9 +49,9 @@ namespace MyListTest
 
             int removeFromList = 3;
 
-            remove.Remove(removeFromList);
+            remove.RemoveObject(removeFromList);
 
-            Assert.AreEqual(4, remove.Count);
+            Assert.AreEqual(4, remove.count);
         }
 
         [TestMethod]
@@ -61,11 +61,10 @@ namespace MyListTest
             MyList<int> remove = new MyList<int> { 4, 23, 32, 47, 50 };
 
             int removeFromList = 32;
-           
 
-            remove.Remove(removeFromList);
+            remove.FindIndex(removeFromList);
 
-            Assert.AreNotEqual(remove[2], removeFromList); 
+            Assert.AreEqual(remove[2], removeFromList); 
         }
         [TestMethod]
         public void TestIterateList()

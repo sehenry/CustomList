@@ -92,10 +92,31 @@ namespace CustomList
             list1 = myArray[i];
             list2 = myArray[i];
 
+           
+
             //myArray = new T [list1.AddRange(list2)];
 
         }
+        public static MyList<T> operator- (MyList<T> one, MyList<T> two)
+        {
+            MyList<T> list = new MyList<T>();
 
+            for (i = 0; i < one.count; i++)
+            {
+                list.Add(one[i]);
+            }
+
+            for (i = 0; i < two.count; i++)
+            {
+                if (two[i].Equals(one[i]))
+                {
+                    list.RemoveObject(two[i]);
+                }
+            }
+
+            list = one + two;
+            return list;
+        }
         public void SubtractOneListFromAnother()
         {
 

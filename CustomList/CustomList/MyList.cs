@@ -12,7 +12,7 @@ namespace CustomList
         public T[] myArray = new T[100];        
         public int count = 0;
         public int capacity = 100;
-        public int i = 0;
+        public static int i = 0;
 
         public T this[int index]
         {
@@ -28,7 +28,13 @@ namespace CustomList
         {
             return this.ToString();
         }
+        public void AddRange(IEnumerable<T> collection)
+        {
+           T list1 = myArray[i];
+           T list2 = myArray[i];
 
+           // myArray = new T [list1.Add(list2)];
+        }
         public void Add(T value)
         {
             myArray[count] = value;
@@ -62,14 +68,47 @@ namespace CustomList
             return i;
         }
 
-        public void AddListsTogether()
+        public static MyList<T> operator+ (MyList<T> one, MyList<T> two)
+        {           
+            MyList<T> list = new MyList<T>();
+            
+            for (i = 0; i< one.count; i++)
+            {
+                list.Add(one[i]);
+            }
+
+            for(i = 0; i< two.count; i++)
+            {
+                list.Add(two[i]);
+            }
+
+            list = one + two;
+            return list;
+        }
+       
+
+        public void OverLoadPlusOperator(T list1, T list2)
         {
+            list1 = myArray[i];
+            list2 = myArray[i];
+
+            //myArray = new T [list1.AddRange(list2)];
 
         }
 
         public void SubtractOneListFromAnother()
         {
 
+        }
+
+        public int AddListsTogether(MyList<int> list2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddListsTogether(int finalList)
+        {
+            throw new NotImplementedException();
         }
 
         //public void ZipClassesTogether()

@@ -28,13 +28,7 @@ namespace CustomList
         {
             return this.ToString();
         }
-        public void AddRange(IEnumerable<T> collection)
-        {
-           T list1 = myArray[i];
-           T list2 = myArray[i];
 
-           // myArray = new T [list1.Add(list2)];
-        }
         public void Add(T value)
         {
             myArray[count] = value;
@@ -59,15 +53,27 @@ namespace CustomList
             }
             return -1;
         }
-
         public int RemoveObject(T value)
         {
-            myArray[i] = value;
+            T[] newArray = new T[100];        
 
-            count--;
-            return i;
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                if (myArray[i].Equals(value) == true)
+                {
+                    count--;                   
+                }
+                else
+                {
+                    // add to newArray;
+                    newArray[i] = myArray[i];
+                }
+            }
+
+            myArray = newArray;
+
+            return -1;
         }
-
         public static MyList<T> operator+ (MyList<T> one, MyList<T> two)
         {           
             MyList<T> list = new MyList<T>();
@@ -82,20 +88,7 @@ namespace CustomList
                 list.Add(two[i]);
             }
 
-            list = one + two;
             return list;
-        }
-       
-
-        public void OverLoadPlusOperator(T list1, T list2)
-        {
-            list1 = myArray[i];
-            list2 = myArray[i];
-
-           
-
-            //myArray = new T [list1.AddRange(list2)];
-
         }
         public static MyList<T> operator- (MyList<T> one, MyList<T> two)
         {
@@ -113,36 +106,8 @@ namespace CustomList
                     list.RemoveObject(two[i]);
                 }
             }
-
-            list = one + two;
             return list;
         }
-        public void SubtractOneListFromAnother()
-        {
-
-        }
-
-        public int AddListsTogether(MyList<int> list2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddListsTogether(int finalList)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public void ZipClassesTogether()
-        //{
-        //    //figure out how to have two instances of list or array as variables to then be used in the IEnumerable
-        //    IEnumerable<string> result = listOne.Zip(listTwo, (a, b) => a.ToString() + b);
-
-        //    foreach(string s in result)
-        //    {
-        //        return;
-        //    }
-        //}
-
         public IEnumerator<T> GetEnumerator() 
         {
             for(int i = 0; i < myArray.Length; i++)
@@ -151,10 +116,39 @@ namespace CustomList
             }
 
         }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
     }
 }
+
+//public void OverLoadPlusOperator(T list1, T list2)
+//{
+//    list1 = myArray[i];
+//    list2 = myArray[i];
+
+
+
+//    //myArray = new T [list1.AddRange(list2)];
+
+//}
+
+//public void ZipClassesTogether()
+//{
+//    //figure out how to have two instances of list or array as variables to then be used in the IEnumerable
+//    IEnumerable<string> result = listOne.Zip(listTwo, (a, b) => a.ToString() + b);
+
+//    foreach(string s in result)
+//    {
+//        return;
+//    }
+//}
+//public void AddRange(IEnumerable<T> collection)
+//{
+//    T list1 = myArray[i];
+//    T list2 = myArray[i];
+
+//    // myArray = new T [list1.Add(list2)];
+//}
+

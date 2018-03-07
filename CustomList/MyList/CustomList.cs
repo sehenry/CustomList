@@ -31,9 +31,13 @@ namespace MyList
         }
         public override string ToString()
         {
-            CustomList<T> overrideString = new CustomList<T>();
+            StringBuilder overrideString = new StringBuilder();
 
-            return overrideString[0] + "" + overrideString[0];
+            for(int i = 0; i< count; i++)
+            {
+                overrideString.Append(myArray[i].ToString());
+            }
+            return overrideString.ToString();
         }
         public void Add(T value)
         {
@@ -112,6 +116,23 @@ namespace MyList
             }
             return list;
         }
+        public CustomList<T> ZipClasses (CustomList<T> zipList1, CustomList<T> zipList2)
+        {
+            CustomList<T> zippedList = new CustomList<T>();
+           
+            for(int i = 0; i< count; i++)
+            {
+                if(zipList1[i] != null)
+                {
+                    zippedList.Add(zipList1[i]);
+                }
+                if(zipList2[i] != null)
+                {
+                    zippedList.Add(zipList2[i]);
+                }              
+            }
+            return zippedList;
+        }
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < myArray.Length; i++)
@@ -124,16 +145,5 @@ namespace MyList
             return GetEnumerator();
         }
     }
-}
-
-        public void ZipClasses()
-        {
-   
-            //IEnumerable<string> result = listOne.Zip(listTwo, (a, b) => a.ToString() + b);
-
-            foreach (string s in result)
-        {
-        
-        }
 }
 
